@@ -1,3 +1,49 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	font-family: roboto;
+}
+
 a {
 	text-decoration: none;
+	color: white;
+}
+
+h1 {
+	padding: 25px;
+}
+
+.site-title {
+	background-color: #4386fc;
+	margin-bottom: 40px;
+}
+
+body {
+	background-color: rgb(240, 240, 240);
+}
+
+.todo {
+	background-color: white;
+	width: 50%;
+	border-radius: 5px;
+	margin: auto;
+}
+
+.list-item {
+	padding: 10px;
+}
+
+input {
+	display: inline-block;
+}
+
+p {
+	display: inline-block;
+}
+
+#button {
+	border: none;
+	background-color: #4386fc;
+	width: 14px;
+	height: 14px;
 }
