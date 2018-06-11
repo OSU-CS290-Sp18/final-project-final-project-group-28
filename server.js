@@ -1,50 +1,31 @@
-var http = require("http");
-var fs = require("fs");
-var port = process.env.PORT || 3000;
+const express = require('express');
+const handlebars = require('express-handlebars');
+const low = require('lowdb');
+const FileAsync = require('lowdb/adapters/FileAsync');
+const adapter = new FileAsync('db.json');
 
-function requestHandler(request, response) {
-	console.log("Got a request!");
-	console.log("Method: ", request.method);
-	console.log("url: ", request.url);
-	
-	response.statusCode = 200;
-	response.setHeader('Content-Type', 'text/html');
-	
-	let data = "";
-	
-	if(request.url === "/") {
-		try {
-			data = fs.readFileSync('./public/index.html', 'utf-8');
-		} catch (err) {
-			console.error(err);
-		}
-	} else if(request.url === "/index.html") {
-		try {
-			data = fs.readFileSync('./public/index.html', 'utf-8');
-		} catch (err) {
-			console.error(err);
-		}
-	} else if (request.url === "/404.html") {
-		try {
-			data = fs.readFileSync('./public/404.html', 'utf-8');
-			response.statusCode = 404;
-		} catch (err) {
-			console.error(err);
-		}
-	}else {
-		try {
-			data = fs.readFileSync('./public/404.html', 'utf-8');
-			response.statusCode = 404;
-		} catch (err) {
-			console.error(err);
-		}
-	}
-	
-	console.log(response.statusCode);
-	response.write(data);
-	response.end();
-}
+const app = express();
+const port = process.env.PORT || 3000;
 
-var server = http.createServer(requestHandler);
+app.engine('handlebars', handlebars({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
-server.listen(port);
+const db = low(adapter).then(function(db){
+	db.defaults({ "notes":[] }).write();
+
+	app.get('/', function(req, res, next) {
+		res.status(200).render('index', {
+			//todo
+		})
+	});
+
+	app.use(express.static('public'));
+
+	app.get('*', function(req, res) {
+		res.status(404).render('404');
+	});
+
+	app.listen(port, function() {
+		console.log(`Server is listening on port ${port}.`);
+	});
+});
