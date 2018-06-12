@@ -14,8 +14,9 @@ const db = low(adapter).then(function(db){
 	db.defaults({ "notes":[] }).write();
 
 	app.get('/', function(req, res, next) {
-		res.status(200).render('index', {
-			//todo
+		dbArray = db.get('notes').value();
+		res.status(200).render('body', {
+			notes: dbArray
 		})
 	});
 

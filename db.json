@@ -1,3 +1,13 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "text": "Note1"
+    },
+    {
+      "text": "Note2"
+    },
+    {
+      "text": "Note3"
+    }
+  ]
 }
