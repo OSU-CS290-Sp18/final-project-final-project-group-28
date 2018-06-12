@@ -30,7 +30,7 @@ body {
 }
 
 .list-item {
-  height: 40px;
+  min-height: 40px;
   display: grid;
   grid-template-columns: 40px auto;
   align-items: center;
@@ -49,14 +49,20 @@ body {
   border-radius: 2px;
 }
 
-.list-text, .task-val {
+.list-text, #task-val {
 	display: inline-block;
   border: none;
   outline: none;
   font-size: 16px;
 }
 
-.task-val {
+.list-text {
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  margin-right: 10px;
+}
+
+#task-val {
   width: 100%;
   padding-right: 10px;
   box-sizing: border-box;
@@ -65,6 +71,6 @@ body {
 .add {
   font-size: 28px;
   line-height: 20px;
-  color: #fff;
-	background: #4386fc;
+  color: #aaa;
+  text-align: center;
 }
