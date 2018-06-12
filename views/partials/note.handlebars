@@ -1,8 +1,4 @@
 <article class="list-item">
-  {{#if checked}}
-    <input class="tick" type="checkbox" checked></input>
-  {{else}}
-    <input class="tick" type="checkbox"></input>
-  {{/if}}
+  <input class="tick" type="checkbox" {{#if checked}}checked{{/if}}></input>
   <p class="list-text">{{text}}</p>
 </article>

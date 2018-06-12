@@ -22,15 +22,16 @@ const db = low(adapter).then(function(db){
 		})
 	});
 
-	app.post('/', function(req, res) {
-		db.get('notes').push({"text":req.body.item, "checked":false}).write();
-		res.status(201);
+	app.post('/new', function(req, res) {
+		db.get('notes').push({ "text": req.get("text"), "checked": false }).write();
+		res.status(201).send("201 Created");
 	});
 
-	app.patch('/', function(req, res) {
-		let remove = db.get('notes').find({'text': req.body.item}).value();
-		db.get('notes').remove(remove).write();
-		res.status(201);
+	app.patch('/tick', function(req, res) {
+		let edit = db.get('notes').find({ "text": req.get("text") });
+		let val = edit.value();
+		edit.assign({checked: req.get("checked")==="true"}).write();
+		res.status(202).send("202 Accepted");
 	});
 
 	app.use(express.static('public'));
