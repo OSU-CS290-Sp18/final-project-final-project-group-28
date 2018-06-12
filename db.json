@@ -1,15 +1,23 @@
 {
   "notes": [
     {
-      "text": "Note1",
+      "text": "Turn in CS Project",
       "checked": false
     },
     {
-      "text": "Note2",
-      "checked": true
+      "text": "Take finals",
+      "checked": false
     },
     {
-      "text": "Note3",
+      "text": "Lie down",
+      "checked": false
+    },
+    {
+      "text": "Try not to cry",
+      "checked": false
+    },
+    {
+      "text": "Cry a lot",
       "checked": false
     }
   ]

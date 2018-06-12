@@ -30,7 +30,7 @@ body {
 }
 
 .list-item {
-  min-height: 40px;
+  height: 40px;
   display: grid;
   grid-template-columns: 40px auto;
   align-items: center;
@@ -50,7 +50,6 @@ body {
 }
 
 .list-text, #task-val {
-	display: inline-block;
   border: none;
   outline: none;
   font-size: 16px;
@@ -58,6 +57,7 @@ body {
 
 .list-text {
   text-overflow: ellipsis;
+  white-space: nowrap;
   overflow-x: hidden;
   margin-right: 10px;
 }
@@ -73,4 +73,5 @@ body {
   line-height: 20px;
   color: #aaa;
   text-align: center;
+  user-select: none;
 }
