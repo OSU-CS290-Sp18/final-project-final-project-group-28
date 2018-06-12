@@ -10,15 +10,15 @@
     },
     {
       "text": "Lie down",
-      "checked": false
+      "checked": true
     },
     {
       "text": "Try not to cry",
-      "checked": false
+      "checked": true
     },
     {
       "text": "Cry a lot",
-      "checked": false
+      "checked": true
     }
   ]
 }

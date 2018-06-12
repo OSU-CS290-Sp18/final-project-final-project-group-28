@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "handlebars views/partials/note.handlebars -f public/note.js",
-    "prestart": "npm run build"
+    "prestart": "npm run build",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,13 @@
     "express-handlebars": "^3.0.0",
     "lowdb": "^1.0.0",
     "npm": "^6.1.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*.json"
+    ]
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
   }
 }

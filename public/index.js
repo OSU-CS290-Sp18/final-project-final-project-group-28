@@ -1,5 +1,6 @@
 document.getElementById("task-val").addEventListener("keyup", function(e){
 	if (e.key == "Enter") {
+		if (e.target.value.trim() == "") return false;
 		const ctx = {text: e.target.value};
 		const head = new Headers({"text": e.target.value});
 		fetch("new", { method: "POST", headers: head });
