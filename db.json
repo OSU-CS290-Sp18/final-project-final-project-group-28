@@ -1,13 +1,16 @@
 {
   "notes": [
     {
-      "text": "Note1"
+      "text": "Note1",
+      "checked": false
     },
     {
-      "text": "Note2"
+      "text": "Note2",
+      "checked": true
     },
     {
-      "text": "Note3"
+      "text": "Note3",
+      "checked": false
     }
   ]
 }

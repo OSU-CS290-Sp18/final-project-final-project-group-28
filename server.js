@@ -23,20 +23,14 @@ const db = low(adapter).then(function(db){
 	});
 
 	app.post('/', function(req, res) {
-		db.get('notes').push({"text":req.body.item}).write();
-		let dbArray = db.get('notes').value();
-		res.status(201).render('body', {
-			notes: dbArray
-		});
+		db.get('notes').push({"text":req.body.item, "checked":false}).write();
+		res.status(201);
 	});
 
 	app.patch('/', function(req, res) {
 		let remove = db.get('notes').find({'text': req.body.item}).value();
 		db.get('notes').remove(remove).write();
-		let dbArray = db.get('notes').value();
-		res.status(201).render('body', {
-			notes:dbArray
-		});
+		res.status(201);
 	});
 
 	app.use(express.static('public'));
